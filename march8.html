@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Мартын 8 Мэндчилгээ</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#ff9ecf,#ffc2e2,#ffe4f2);
+height:100vh;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+max-width:420px;
+width:90%;
+text-align:center;
+position:relative;
+z-index:2;
+}
+
+h1{
+color:#ff2f92;
+margin-bottom:10px;
+}
+
+p{
+color:#444;
+font-size:18px;
+}
+
+.photo{
+width:100%;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* 3D HEART */
+.heart{
+width:80px;
+height:80px;
+background:red;
+position:relative;
+margin:20px auto;
+transform:rotate(-45deg);
+animation:beat 1s infinite;
+}
+
+.heart:before,
+.heart:after{
+content:"";
+width:80px;
+height:80px;
+background:red;
+border-radius:50%;
+position:absolute;
+}
+
+.heart:before{
+top:-40px;
+left:0;
+}
+
+.heart:after{
+left:40px;
+top:0;
+}
+
+@keyframes beat{
+0%{transform:rotate(-45deg) scale(1);} 
+50%{transform:rotate(-45deg) scale(1.2);} 
+100%{transform:rotate(-45deg) scale(1);} 
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#ff4fa3;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff2f92;
+}
+
+.hidden{
+display:none;
+margin-top:15px;
+font-size:20px;
+color:#d81b60;
+}
+
+/* Falling flowers */
+.flower{
+position:absolute;
+top:-50px;
+font-size:24px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0.8;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="https://1drv.ms/i/c/c4ffe54658963f49/IQCjZlpEFQA3QImNZ3dgxgEFAcRrNdO_Qu7CazDDz5t3dho?e=M3OxJL" class="photo" />
+
+<h1>Мартын 8</h1>
+
+<div class="heart"></div>
+
+<p>Олон улсын эмэгтэйчүүдийн эрхийг хамгаалах өдрийн мэнд хүргэе.</p>
+
+<button onclick="showMessage()">Мэндчилгээ нээх</button>
+
+<div id="msg" class="hidden">
+Танд аз жаргал, хайр, инээд хөөрөөр дүүрэн сайхан өдрүүдийг хүсье 🌸
+</div>
+
+</div>
+
+<script>
+
+function showMessage(){
+document.getElementById('msg').style.display='block';
+}
+
+// Create falling flowers
+for(let i=0;i<25;i++){
+let flower=document.createElement("div");
+flower.className="flower";
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(3+Math.random()*5)+"s";
+flower.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(flower);
+}
+
+</script>
+
+</body>
+</html>
